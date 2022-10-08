@@ -64,6 +64,15 @@ class Main extends Component {
               }}>
                 UN-STAKE...
               </button>
+              <button
+              type="submit"
+              className="btn btn-link btn-block btn-sm"
+              onClick={(event) => {
+                event.preventDefault()
+                this.props.issueTokens()
+              }}>
+                Issue Token
+              </button>
           </div>
         </div>
 

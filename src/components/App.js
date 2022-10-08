@@ -86,6 +86,12 @@ class App extends Component {
       this.setState({ loading: false })
     })
   }
+  issueTokens = (amount) => {
+    this.setState({ loading: true })
+    this.state.tokenFarm.methods.issueTokens().send({ from: this.state.account }).on('transactionHash', (hash) => {
+      this.setState({ loading: false })
+    })
+  }
 
   constructor(props) {
     super(props)
@@ -112,6 +118,8 @@ class App extends Component {
         stakingBalance={this.state.stakingBalance}
         stakeTokens={this.stakeTokens}
         unstakeTokens={this.unstakeTokens}
+        issueTokens= {this.issueTokens}
+
       />
     }
 

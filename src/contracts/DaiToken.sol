@@ -1,9 +1,9 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.0;
 
 contract DaiToken {
     string  public name = "Mock DAI Token";
     string  public symbol = "mDAI";
-    uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
+    uint256 public totalSupply = 1000000000000000000000000000000; // 1 million tokens
     uint8   public decimals = 18;
 
     event Transfer(
@@ -21,7 +21,7 @@ contract DaiToken {
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    constructor() public {
+    constructor()  {
         balanceOf[msg.sender] = totalSupply;
     }
 
@@ -47,5 +47,10 @@ contract DaiToken {
         allowance[_from][msg.sender] -= _value;
         emit Transfer(_from, _to, _value);
         return true;
+    }
+
+    function buyDaiFromEther (uint256 _dai_to_buy) view public{
+       // this.transfer(msg.sender, _dai_to_buy);
+    address(this).call{value: _dai_to_buy};
     }
 }
