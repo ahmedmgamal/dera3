@@ -17,7 +17,7 @@ class Main extends Component {
           <tbody>
             <tr>
               <td>{window.web3.utils.fromWei(this.props.stakingBalance, 'Ether')} mDAI</td>
-              <td>{window.web3.utils.fromWei(this.props.dappTokenBalance, 'Ether')} DAPP</td>
+              <td>{window.web3.utils.fromWei(this.props.dappTokenBalance, 'Ether')} DERA</td>
             </tr>
           </tbody>
         </table>
@@ -63,6 +63,15 @@ class Main extends Component {
                 this.props.unstakeTokens()
               }}>
                 UN-STAKE...
+              </button>
+              <button
+              type="submit"
+              className="btn btn-link btn-block btn-sm"
+              onClick={(event) => {
+                event.preventDefault()
+                this.props.issueTokens()
+              }}>
+                Issue Token
               </button>
           </div>
         </div>
